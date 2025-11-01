@@ -1,4 +1,3 @@
-import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { DashboardPreview } from "@/components/dashboard-preview"
 import { SocialProof } from "@/components/social-proof"
@@ -7,15 +6,14 @@ import { LargeTestimonial } from "@/components/large-testimonial"
 import { PricingSection } from "@/components/pricing-section"
 import { TestimonialGridSection } from "@/components/testimonial-grid-section"
 import { FAQSection } from "@/components/faq-section"
-import CTA from "@/components/cta"
-import Footer from "@/components/footer"
+import { CTASection } from "@/components/cta-section"
+import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
 
-export default function Home() {
+export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden pb-0">
       <div className="relative z-10">
-        <Header />
         <main className="max-w-[1320px] mx-auto relative">
           <HeroSection />
           {/* Dashboard Preview Wrapper */}
@@ -52,10 +50,10 @@ export default function Home() {
           <FAQSection />
         </AnimatedSection>
         <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-          <CTA />
+          <CTASection />
         </AnimatedSection>
         <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-          <Footer />
+          <FooterSection />
         </AnimatedSection>
       </div>
     </div>

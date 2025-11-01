@@ -2,12 +2,12 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Menu, X, LogIn, LogOut, User } from "lucide-react"
+import { Menu, LogIn, LogOut, User } from "lucide-react"
 import { AuthDialog, useAuth } from "@/components/auth-dialog"
 import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+export function Header() {
   const [isAuthDialogOpen, setIsAuthDialogOpen] = useState(false)
   const { user, loading, logout } = useAuth()
 
@@ -15,36 +15,48 @@ export default function Header() {
     await logout()
   }
 
-  return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      <nav className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-tight text-primary">
-          Nexus
-        </Link>
+  const navItems = [
+    { name: "기능", href: "#features-section" },
+    { name: "가격", href: "#pricing-section" },
+    { name: "추천사례", href: "#testimonials-section" },
+    { name: "FAQ", href: "#faq-section" },
+  ]
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link href="#services" className="text-foreground/70 hover:text-foreground transition-colors">
-            서비스
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.substring(1)
+    const targetElement = document.getElementById(targetId)
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  return (
+    <header className="w-full py-4 px-6 sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="flex items-center gap-6">
+          <Link href="/" className="flex items-center gap-3">
+            <span className="text-foreground text-xl font-semibold">Global</span>
           </Link>
-          <Link href="#portfolio" className="text-foreground/70 hover:text-foreground transition-colors">
-            포트폴리오
-          </Link>
-          <Link href="#process" className="text-foreground/70 hover:text-foreground transition-colors">
-            프로세스
-          </Link>
-          <Link
-            href="#contact"
-            className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors"
-          >
-            문의하기
-          </Link>
-          
-          {/* Auth Button */}
+          <nav className="hidden md:flex items-center gap-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleScroll(e, item.href)}
+                className="text-[#888888] hover:text-foreground px-4 py-2 rounded-full font-medium transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <div className="flex items-center gap-4">
+          {/* Auth Button - Desktop */}
           {loading ? (
-            <div className="px-4 py-2 text-sm text-muted-foreground">로딩 중...</div>
+            <div className="hidden md:block px-4 py-2 text-sm text-muted-foreground">로딩 중...</div>
           ) : user ? (
-            <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4">
               <div className="flex items-center gap-2 text-sm">
                 <User className="size-4" />
                 <span className="text-foreground/70">{user.email}</span>
@@ -62,74 +74,69 @@ export default function Header() {
             <Button
               onClick={() => setIsAuthDialogOpen(true)}
               variant="outline"
-              className="flex items-center gap-2"
+              className="hidden md:flex items-center gap-2"
             >
               <LogIn className="size-4" />
               로그인
             </Button>
           )}
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-background border-b border-border md:hidden">
-            <div className="flex flex-col gap-4 px-6 py-4">
-              <Link href="#services" className="text-foreground/70 hover:text-foreground">
-                서비스
-              </Link>
-              <Link href="#portfolio" className="text-foreground/70 hover:text-foreground">
-                포트폴리오
-              </Link>
-              <Link href="#process" className="text-foreground/70 hover:text-foreground">
-                프로세스
-              </Link>
-              <Link
-                href="#contact"
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors text-center"
-              >
-                문의하기
-              </Link>
-              
-              {/* Mobile Auth Button */}
-              {loading ? (
-                <div className="px-4 py-2 text-sm text-muted-foreground text-center">로딩 중...</div>
-              ) : user ? (
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center justify-center gap-2 text-sm py-2">
-                    <User className="size-4" />
-                    <span className="text-foreground/70">{user.email}</span>
-                  </div>
-                  <Button
-                    variant="outline"
-                    onClick={handleLogout}
-                    className="flex items-center justify-center gap-2"
+          {/* Mobile Menu */}
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon" className="text-foreground">
+                <Menu className="h-7 w-7" />
+                <span className="sr-only">네비게이션 메뉴 토글</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="bg-background border-t border-border text-foreground">
+              <SheetHeader>
+                <SheetTitle className="text-left text-xl font-semibold text-foreground">네비게이션</SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-4 mt-6">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleScroll(e, item.href)}
+                    className="text-[#888888] hover:text-foreground justify-start text-lg py-2"
                   >
-                    <LogOut className="size-4" />
-                    로그아웃
+                    {item.name}
+                  </Link>
+                ))}
+                {/* Mobile Auth Button */}
+                {loading ? (
+                  <div className="px-4 py-2 text-sm text-muted-foreground text-center">로딩 중...</div>
+                ) : user ? (
+                  <div className="flex flex-col gap-2 mt-4">
+                    <div className="flex items-center justify-center gap-2 text-sm py-2">
+                      <User className="size-4" />
+                      <span className="text-foreground/70">{user.email}</span>
+                    </div>
+                    <Button
+                      variant="outline"
+                      onClick={handleLogout}
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <LogOut className="size-4" />
+                      로그아웃
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    onClick={() => setIsAuthDialogOpen(true)}
+                    variant="outline"
+                    className="flex items-center justify-center gap-2 mt-4"
+                  >
+                    <LogIn className="size-4" />
+                    로그인
                   </Button>
-                </div>
-              ) : (
-                <Button
-                  onClick={() => {
-                    setIsAuthDialogOpen(true)
-                    setIsOpen(false)
-                  }}
-                  variant="outline"
-                  className="flex items-center justify-center gap-2"
-                >
-                  <LogIn className="size-4" />
-                  로그인
-                </Button>
-              )}
-            </div>
-          </div>
-        )}
-      </nav>
+                )}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
       
       {/* Auth Dialog */}
       <AuthDialog open={isAuthDialogOpen} onOpenChange={setIsAuthDialogOpen} />
