@@ -25,19 +25,19 @@ export default function Header() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="#services" className="text-foreground/70 hover:text-foreground transition-colors">
-            Services
+            서비스
           </Link>
           <Link href="#portfolio" className="text-foreground/70 hover:text-foreground transition-colors">
-            Portfolio
+            포트폴리오
           </Link>
           <Link href="#process" className="text-foreground/70 hover:text-foreground transition-colors">
-            Process
+            프로세스
           </Link>
           <Link
             href="#contact"
             className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors"
           >
-            Contact
+            문의하기
           </Link>
           
           {/* Auth Button */}
@@ -80,19 +80,19 @@ export default function Header() {
           <div className="absolute top-full left-0 right-0 bg-background border-b border-border md:hidden">
             <div className="flex flex-col gap-4 px-6 py-4">
               <Link href="#services" className="text-foreground/70 hover:text-foreground">
-                Services
+                서비스
               </Link>
               <Link href="#portfolio" className="text-foreground/70 hover:text-foreground">
-                Portfolio
+                포트폴리오
               </Link>
               <Link href="#process" className="text-foreground/70 hover:text-foreground">
-                Process
+                프로세스
               </Link>
               <Link
                 href="#contact"
                 className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors text-center"
               >
-                Contact
+                문의하기
               </Link>
               
               {/* Mobile Auth Button */}

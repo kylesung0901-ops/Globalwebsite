@@ -15,12 +15,11 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-6 py-32 md:py-40 w-full">
         <div className="text-center space-y-8">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-pretty">
-            Digital Innovation at Scale
+            규모 있는 디지털 혁신
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto text-pretty">
-            We transform bold ideas into exceptional digital experiences that drive business growth and captivate
-            audiences worldwide.
+            대담한 아이디어를 비즈니스 성장을 이끄는 탁월한 디지털 경험으로 변화시켜 전 세계 고객을 사로잡습니다.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -28,14 +27,14 @@ export default function Hero() {
               href="#contact"
               className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group"
             >
-              Start Your Project
+              프로젝트 시작하기
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="#portfolio"
               className="px-8 py-4 border-2 border-foreground/20 text-foreground rounded-full font-semibold hover:border-foreground hover:bg-foreground/5 transition-all"
             >
-              View Our Work
+              작업물 보기
             </Link>
           </div>
         </div>

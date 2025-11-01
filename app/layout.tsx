@@ -7,9 +7,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Nexus - 디지털 혁신 에이전시',
+  description: '대담한 아이디어를 비즈니스 성장을 이끄는 탁월한 디지털 경험으로 변화시킵니다.',
+  generator: 'Nexus',
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />

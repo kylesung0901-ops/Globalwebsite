@@ -86,10 +86,10 @@ export default function CTA() {
       <div className="relative max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
-            Ready to Transform Your Digital Presence?
+            디지털 프레즌스를 변화시킬 준비가 되셨나요?
           </h2>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-            Let's collaborate to create something extraordinary. Get in touch with our team to discuss your project.
+            함께 뭔가 특별한 것을 만들어보세요. 프로젝트에 대해 논의하기 위해 저희 팀에 연락해주세요.
           </p>
         </div>
 

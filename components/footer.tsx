@@ -10,63 +10,63 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
             <h3 className="text-2xl font-bold mb-4">Nexus</h3>
-            <p className="text-primary-foreground/70">Global digital agency creating transformative experiences.</p>
+            <p className="text-primary-foreground/70">혁신적인 경험을 만드는 글로벌 디지털 에이전시입니다.</p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
+            <h4 className="font-semibold mb-4">서비스</h4>
             <ul className="space-y-2 text-primary-foreground/70">
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  Web Design
+                  웹 디자인
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  Development
+                  개발
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  Brand Strategy
+                  브랜드 전략
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  Digital Products
+                  디지털 제품
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h4 className="font-semibold mb-4">회사</h4>
             <ul className="space-y-2 text-primary-foreground/70">
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  About
+                  소개
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  Team
+                  팀
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  Careers
+                  채용
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary-foreground transition-colors">
-                  Blog
+                  블로그
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
+            <h4 className="font-semibold mb-4">연결</h4>
             <div className="flex gap-4">
               <Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 <Twitter size={20} />
@@ -88,13 +88,13 @@ export default function Footer() {
           <p>&copy; {currentYear} Nexus. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-primary-foreground transition-colors">
-              Privacy Policy
+              개인정보 처리방침
             </Link>
             <Link href="#" className="hover:text-primary-foreground transition-colors">
-              Terms of Service
+              이용약관
             </Link>
             <Link href="#" className="hover:text-primary-foreground transition-colors">
-              Cookie Policy
+              쿠키 정책
             </Link>
           </div>
         </div>
