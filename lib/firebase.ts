@@ -16,15 +16,75 @@ let app: FirebaseApp | undefined
 let auth: Auth | undefined
 let db: Firestore | undefined
 
-if (typeof window !== 'undefined') {
-  if (!getApps().length) {
-    app = initializeApp(firebaseConfig)
-  } else {
-    app = getApps()[0]
+const getFirebaseApp = (): FirebaseApp | undefined => {
+  if (typeof window === 'undefined') {
+    return undefined
   }
-  auth = getAuth(app)
-  db = getFirestore(app)
+
+  if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+    console.warn('Firebase configuration is missing. Please check your environment variables.')
+    return undefined
+  }
+
+  if (!app) {
+    if (!getApps().length) {
+      try {
+        app = initializeApp(firebaseConfig)
+      } catch (error) {
+        console.error('Firebase initialization error:', error)
+        return undefined
+      }
+    } else {
+      app = getApps()[0]
+    }
+  }
+
+  return app
 }
+
+const getFirebaseAuth = (): Auth | undefined => {
+  if (typeof window === 'undefined') {
+    return undefined
+  }
+
+  if (!auth) {
+    const firebaseApp = getFirebaseApp()
+    if (firebaseApp) {
+      try {
+        auth = getAuth(firebaseApp)
+      } catch (error) {
+        console.error('Firebase Auth initialization error:', error)
+        return undefined
+      }
+    }
+  }
+
+  return auth
+}
+
+const getFirebaseFirestore = (): Firestore | undefined => {
+  if (typeof window === 'undefined') {
+    return undefined
+  }
+
+  if (!db) {
+    const firebaseApp = getFirebaseApp()
+    if (firebaseApp) {
+      try {
+        db = getFirestore(firebaseApp)
+      } catch (error) {
+        console.error('Firebase Firestore initialization error:', error)
+        return undefined
+      }
+    }
+  }
+
+  return db
+}
+
+app = getFirebaseApp()
+auth = getFirebaseAuth()
+db = getFirebaseFirestore()
 
 export { auth, db }
 export default app
