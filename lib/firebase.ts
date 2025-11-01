@@ -2,7 +2,7 @@ import { initializeApp, getApps, FirebaseApp } from 'firebase/app'
 import { getAuth, Auth } from 'firebase/auth'
 import { getFirestore, Firestore } from 'firebase/firestore'
 
-// Firebase 설정 - 환경 변수가 없으면 직접 값을 사용
+// Firebase 설정 - 웹 API 키를 직접 설정
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyCe41QT5ZIfosTU2M0fz1TZN5H0Vorw94U",
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "globalwebsite-36924.firebaseapp.com",
@@ -13,6 +13,17 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-YY67QQWNQR",
 }
 
+// Firebase 연결 상태 확인을 위한 로그
+console.log('🔥 Firebase 설정 확인:', {
+  apiKey: firebaseConfig.apiKey ? firebaseConfig.apiKey.substring(0, 10) + '...' : 'missing',
+  projectId: firebaseConfig.projectId,
+  authDomain: firebaseConfig.authDomain,
+  hasEnvVars: {
+    apiKey: !!process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    projectId: !!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  }
+})
+
 let app: FirebaseApp | undefined
 let auth: Auth | undefined
 let db: Firestore | undefined = undefined
@@ -22,21 +33,37 @@ const getFirebaseApp = (): FirebaseApp | undefined => {
     return undefined
   }
 
+  // Firebase 설정 검증
   if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
-    console.warn('Firebase configuration is missing. Please check your environment variables.')
+    console.error('❌ Firebase configuration is missing:', {
+      hasApiKey: !!firebaseConfig.apiKey,
+      hasProjectId: !!firebaseConfig.projectId,
+      config: firebaseConfig
+    })
     return undefined
   }
 
   if (!app) {
     if (!getApps().length) {
       try {
+        console.log('🚀 Firebase 앱 초기화 시작...')
         app = initializeApp(firebaseConfig)
-      } catch (error) {
-        console.error('Firebase initialization error:', error)
+        console.log('✅ Firebase 앱 초기화 성공:', {
+          name: app.name,
+          projectId: firebaseConfig.projectId
+        })
+      } catch (error: any) {
+        console.error('❌ Firebase initialization error:', error)
+        console.error('Error details:', {
+          message: error.message,
+          code: error.code,
+          stack: error.stack
+        })
         return undefined
       }
     } else {
       app = getApps()[0]
+      console.log('✅ 기존 Firebase 앱 사용:', app.name)
     }
   }
 
@@ -88,11 +115,14 @@ const getFirebaseFirestore = (): Firestore | undefined => {
     }
 
     try {
+      console.log('🗄️ Firestore 초기화 시작...')
       db = getFirestore(firebaseApp)
-      console.log('✅ Firestore initialized successfully', {
+      console.log('✅ Firestore 초기화 성공!', {
         projectId: firebaseConfig.projectId,
-        apiKey: firebaseConfig.apiKey?.substring(0, 10) + '...'
+        apiKey: firebaseConfig.apiKey?.substring(0, 10) + '...',
+        appName: firebaseApp.name
       })
+      console.log('✅ Firebase 연결 완료 - 데이터베이스 사용 가능')
     } catch (error: any) {
       console.error('❌ Firebase Firestore initialization error:', error)
       console.error('Error details:', {
