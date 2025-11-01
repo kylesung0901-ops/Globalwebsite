@@ -136,7 +136,7 @@ export default function CTA() {
             <Input
               id="email"
               type="email"
-              placeholder="your@email.com"
+              placeholder="이메일을 입력하세요"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={isLoading}

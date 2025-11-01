@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center text-primary-foreground/60 text-sm">
-          <p>&copy; {currentYear} Nexus. All rights reserved.</p>
+          <p>&copy; {currentYear} Nexus. 모든 권리 보유.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-primary-foreground transition-colors">
               개인정보 처리방침
