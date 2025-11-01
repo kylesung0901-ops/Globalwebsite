@@ -7,9 +7,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Nexus - 디지털 혁신 에이전시',
-  description: '대담한 아이디어를 비즈니스 성장을 이끄는 탁월한 디지털 경험으로 변화시킵니다.',
-  generator: 'Nexus',
+  title: 'Global - AI 기반 개발 플랫폼',
+  description: '코드를 작성, 검토, 최적화하는 지능형 AI 에이전트로 개발 워크플로우를 가속화하세요.',
+  generator: 'Global',
 }
 
 export default function RootLayout({

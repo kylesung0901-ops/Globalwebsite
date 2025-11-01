@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
-            <h3 className="text-2xl font-bold mb-4">Nexus</h3>
+            <h3 className="text-2xl font-bold mb-4">Global</h3>
             <p className="text-primary-foreground/70">혁신적인 경험을 만드는 글로벌 디지털 에이전시입니다.</p>
           </div>
 
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center text-primary-foreground/60 text-sm">
-          <p>&copy; {currentYear} Nexus. 모든 권리 보유.</p>
+          <p>&copy; {currentYear} Global. 모든 권리 보유.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-primary-foreground transition-colors">
               개인정보 처리방침

@@ -112,7 +112,7 @@ const TestimonialCard = ({ quote, name, company, avatar, type }) => {
       <div className="relative z-10 flex justify-start items-center gap-3">
         <Image
           src={avatar || "/placeholder.svg"}
-          alt={`${name} avatar`}
+          alt={`${name} 프로필 사진`}
           width={avatarSize}
           height={avatarSize}
           className={`w-${avatarSize / 4} h-${avatarSize / 4} ${avatarBorderRadius}`}
