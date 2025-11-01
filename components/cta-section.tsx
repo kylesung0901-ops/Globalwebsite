@@ -104,19 +104,18 @@ export function CTASection() {
       <div className="relative z-10 flex flex-col justify-start items-center gap-9 max-w-4xl mx-auto">
         <div className="flex flex-col justify-start items-center gap-4 text-center">
           <h2 className="text-foreground text-4xl md:text-5xl lg:text-[68px] font-semibold leading-tight md:leading-tight lg:leading-[76px] break-words max-w-[435px]">
-            Coding made effortless
+            코딩이 수월해졌습니다
           </h2>
           <p className="text-muted-foreground text-sm md:text-base font-medium leading-[18.20px] md:leading-relaxed break-words max-w-2xl">
-            Hear how developers ship products faster, collaborate seamlessly, and build with confidence using Pointer's
-            powerful AI tools
+            개발자들이 강력한 AI 도구를 사용하여 제품을 더 빠르게 출시하고, 원활하게 협업하며, 자신 있게 구축하는 방법을 확인하세요
           </p>
         </div>
-        <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer">
+        <Link href="#contact">
           <Button
             className="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/90 transition-all duration-200"
             size="lg"
           >
-            Signup for free
+            무료로 시작하기
           </Button>
         </Link>
       </div>

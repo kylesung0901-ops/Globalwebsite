@@ -6,34 +6,34 @@ import { ChevronDown } from "lucide-react"
 
 const faqData = [
   {
-    question: "What is Pointer and who is it for?",
+    question: "Global은 무엇이며 누구를 위한 것인가요?",
     answer:
-      "Pointer is an AI-powered development platform designed for developers, teams, and organizations who want toaccelerate their coding workflow. It's perfect for both individual developers looking to enhance their productivity and teams seeking seamless collaboration tools.",
+      "Global은 코딩 워크플로우를 가속화하고 싶은 개발자, 팀, 조직을 위한 AI 기반 개발 플랫폼입니다. 생산성을 향상시키고 싶은 개인 개발자와 원활한 협업 도구를 찾는 팀에게 완벽합니다.",
   },
   {
-    question: "How does Pointer's AI code review work?",
+    question: "Global의 AI 코드 리뷰는 어떻게 작동하나요?",
     answer:
-      "Our AI analyzes your code in real-time, providing intelligent suggestions for improvements, catching potential bugs, and ensuring best practices. It learns from your coding patterns and adapts to your team's standards, making code reviews faster and more consistent.",
+      "AI가 코드를 실시간으로 분석하여 개선을 위한 지능적인 제안을 제공하고, 잠재적인 버그를 찾아 모범 사례를 보장합니다. 코딩 패턴에서 학습하여 팀의 표준에 적응하여 코드 리뷰를 더 빠르고 일관되게 만듭니다.",
   },
   {
-    question: "Can I integrate Pointer with my existing tools?",
+    question: "기존 도구와 Global을 통합할 수 있나요?",
     answer:
-      "Yes! Pointer offers one-click integrations with popular development tools including GitHub, GitLab, VS Code, Slack, and many more. Our MCP connectivity allows you to easily manage and configure server access across your entire development stack.",
+      "네! Global은 GitHub, GitLab, VS Code, Slack 등 인기 있는 개발 도구와 원클릭 통합을 제공합니다. MCP 연결을 통해 전체 개발 스택에서 서버 접근을 쉽게 관리하고 구성할 수 있습니다.",
   },
   {
-    question: "What's included in the free plan?",
+    question: "무료 플랜에는 무엇이 포함되나요?",
     answer:
-      "The free plan includes real-time code suggestions, basic integrations, single MCP server connection, up to 2 AI coding agents, and Vercel deployments with Pointer branding. It's perfect for individual developers getting started.",
+      "무료 플랜에는 실시간 코드 제안, 기본 통합, 단일 MCP 서버 연결, 최대 2개의 AI 코딩 에이전트, 브랜딩이 포함된 Vercel 배포가 포함됩니다. 시작하는 개인 개발자에게 완벽합니다.",
   },
   {
-    question: "How do parallel coding agents work?",
+    question: "병렬 코딩 에이전트는 어떻게 작동하나요?",
     answer:
-      "Our parallel coding agents can work on different parts of your codebase simultaneously, solving complex problems faster than traditional single-threaded approaches. You can launch multiple agents to handle different tasks like bug fixes, feature development, and code optimization concurrently.",
+      "병렬 코딩 에이전트는 코드베이스의 다른 부분에서 동시에 작업하여 전통적인 단일 스레드 방식보다 복잡한 문제를 더 빠르게 해결합니다. 버그 수정, 기능 개발, 코드 최적화와 같은 다양한 작업을 동시에 처리하기 위해 여러 에이전트를 실행할 수 있습니다.",
   },
   {
-    question: "Is my code secure with Pointer?",
+    question: "Global에서 코드가 안전한가요?",
     answer:
-      "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your code never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers.",
+      "물론입니다. 엔드투엔드 암호화, 안전한 데이터 전송, 업계 표준 준수를 포함한 엔터프라이즈급 보안 조치를 사용합니다. 코드는 명시적인 허가 없이는 안전한 환경을 벗어나지 않으며, 엔터프라이즈 고객을 위한 온프레미스 배포 옵션을 제공합니다.",
   },
 ]
 
@@ -96,10 +96,10 @@ export function FAQSection() {
       <div className="self-stretch pt-8 pb-8 md:pt-14 md:pb-14 flex flex-col justify-center items-center gap-2 relative z-10">
         <div className="flex flex-col justify-start items-center gap-4">
           <h2 className="w-full max-w-[435px] text-center text-foreground text-4xl font-semibold leading-10 break-words">
-            Frequently Asked Questions
+            자주 묻는 질문
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-[18.20px] break-words">
-            Everything you need to know about Pointer and how it can transform your development workflow
+            Global에 대해 알아야 할 모든 것과 개발 워크플로우를 변혁시키는 방법
           </p>
         </div>
       </div>

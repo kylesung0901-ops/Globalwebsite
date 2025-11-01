@@ -24,7 +24,7 @@ export function HeroScroll() {
       >
         <Image
           src="/images/dashboard-preview.png"
-          alt="AI Dashboard Preview"
+          alt="AI 대시보드 미리보기"
           height={720}
           width={1400}
           className="mx-auto rounded-2xl object-cover h-full object-left-top"

@@ -9,53 +9,53 @@ export function PricingSection() {
 
   const pricingPlans = [
     {
-      name: "Free",
-      monthlyPrice: "$0",
-      annualPrice: "$0",
-      description: "Perfect for individuals starting their journey.",
+      name: "무료",
+      monthlyPrice: "₩0",
+      annualPrice: "₩0",
+      description: "여정을 시작하는 개인에게 완벽합니다.",
       features: [
-        "Real-time code suggestions",
-        "Basic integration logos",
-        "Single MCP server connection",
-        "Up to 2 AI coding agents",
-        "Vercel deployments with Pointer branding",
+        "실시간 코드 제안",
+        "기본 통합 로고",
+        "단일 MCP 서버 연결",
+        "최대 2개의 AI 코딩 에이전트",
+        "브랜딩이 포함된 Vercel 배포",
       ],
-      buttonText: "Get Started",
+      buttonText: "시작하기",
       buttonClass:
         "bg-zinc-300 shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] outline outline-0.5 outline-[#1e29391f] outline-offset-[-0.5px] text-gray-800 text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-zinc-400",
     },
     {
-      name: "Pro",
-      monthlyPrice: "$20",
-      annualPrice: "$16",
-      description: "Ideal for professionals.",
+      name: "프로",
+      monthlyPrice: "₩20,000",
+      annualPrice: "₩16,000",
+      description: "전문가에게 이상적입니다.",
       features: [
-        "Enhanced real-time previews",
-        "Unlimited integrations with custom logos",
-        "Multiple MCP server connections",
-        "Up to 10 concurrent AI coding agents",
-        "Collaborative coding with team chat",
-        "Advanced version control integrations",
-        "Priority email and chat support",
+        "향상된 실시간 미리보기",
+        "커스텀 로고를 포함한 무제한 통합",
+        "다중 MCP 서버 연결",
+        "최대 10개의 동시 AI 코딩 에이전트",
+        "팀 채팅과 함께하는 협업 코딩",
+        "고급 버전 관리 통합",
+        "우선 이메일 및 채팅 지원",
       ],
-      buttonText: "Join now",
+      buttonText: "지금 가입하기",
       buttonClass:
         "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-primary text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-primary-foreground/90",
       popular: true,
     },
     {
-      name: "Ultra",
-      monthlyPrice: "$200",
-      annualPrice: "$160",
-      description: "Tailored solutions for teams.",
+      name: "울트라",
+      monthlyPrice: "₩200,000",
+      annualPrice: "₩160,000",
+      description: "팀을 위한 맞춤 솔루션.",
       features: [
-        "Dedicated account support",
-        "Unlimited MCP server clusters",
-        "Unlimited AI coding agents",
-        "Enterprise-grade security and compliance",
-        "Priority deployments and SLA guarantees",
+        "전담 계정 지원",
+        "무제한 MCP 서버 클러스터",
+        "무제한 AI 코딩 에이전트",
+        "엔터프라이즈급 보안 및 규정 준수",
+        "우선 배포 및 SLA 보장",
       ],
-      buttonText: "Talk to Sales",
+      buttonText: "영업팀과 상담하기",
       buttonClass:
         "bg-secondary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-secondary-foreground text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-secondary/90",
     },
@@ -66,11 +66,10 @@ export function PricingSection() {
       <div className="self-stretch relative flex flex-col justify-center items-center gap-2 py-0">
         <div className="flex flex-col justify-start items-center gap-4">
           <h2 className="text-center text-foreground text-4xl md:text-5xl font-semibold leading-tight md:leading-[40px]">
-            Pricing built for every developer
+            모든 개발자를 위한 가격
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-tight">
-            Choose a plan that fits your coding workflow, from individuals starting out to <br /> growing professionals
-            and large organizations.
+            시작하는 개인부터 성장하는 전문가, 대규모 조직까지 <br /> 코딩 워크플로우에 맞는 플랜을 선택하세요.
           </p>
         </div>
         <div className="pt-4">
@@ -82,7 +81,7 @@ export function PricingSection() {
               <span
                 className={`text-center text-sm font-medium leading-tight ${isAnnual ? "text-accent-foreground" : "text-zinc-400"}`}
               >
-                Annually
+                연간
               </span>
             </button>
             <button
@@ -92,7 +91,7 @@ export function PricingSection() {
               <span
                 className={`text-center text-sm font-medium leading-tight ${!isAnnual ? "text-accent-foreground" : "text-zinc-400"}`}
               >
-                Monthly
+                월간
               </span>
             </button>
           </div>
@@ -114,7 +113,7 @@ export function PricingSection() {
                   {plan.popular && (
                     <div className="ml-2 px-2 overflow-hidden rounded-full justify-center items-center gap-2.5 inline-flex mt-0 py-0.5 bg-gradient-to-b from-primary-light/50 to-primary-light bg-white">
                       <div className="text-center text-primary-foreground text-xs font-normal leading-tight break-words">
-                        Popular
+                        인기
                       </div>
                     </div>
                   )}
@@ -151,7 +150,7 @@ export function PricingSection() {
                     <div
                       className={`text-center text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-zinc-400"}`}
                     >
-                      /month
+                      /월
                     </div>
                   </div>
                   <div
@@ -166,7 +165,7 @@ export function PricingSection() {
               >
                 <div className="px-1.5 flex justify-center items-center gap-2">
                   <span
-                    className={`text-center text-sm font-medium leading-tight ${plan.name === "Free" ? "text-gray-800" : plan.name === "Pro" ? "text-primary" : "text-zinc-950"}`}
+                    className={`text-center text-sm font-medium leading-tight ${plan.name === "무료" ? "text-gray-800" : plan.name === "프로" ? "text-primary" : "text-zinc-950"}`}
                   >
                     {plan.buttonText}
                   </span>
@@ -177,7 +176,7 @@ export function PricingSection() {
               <div
                 className={`self-stretch text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}
               >
-                {plan.name === "Free" ? "Get Started today:" : "Everything in Free +"}
+                {plan.name === "무료" ? "오늘 시작하기:" : "무료 플랜의 모든 기능 +"}
               </div>
               <div className="self-stretch flex flex-col justify-start items-start gap-3">
                 {plan.features.map((feature) => (

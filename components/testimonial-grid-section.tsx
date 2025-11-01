@@ -3,57 +3,57 @@ import Image from "next/image"
 const testimonials = [
   {
     quote:
-      "The real-time code suggestions from Pointer feel like having a senior engineer reviewing every line of code as you write. The accuracy of its recommendations has improved our overall code quality, reduced review time.",
-    name: "Annette Black",
-    company: "Sony",
+      "실시간 코드 제안 기능은 마치 고급 엔지니어가 코드를 작성할 때마다 모든 줄을 검토하는 것 같습니다. 추천의 정확도가 전체 코드 품질을 향상시키고 리뷰 시간을 줄였습니다.",
+    name: "안네트 블랙",
+    company: "소니",
     avatar: "/images/avatars/annette-black.png",
     type: "large-teal",
   },
   {
     quote:
-      "Integrating Pointer into our stack was smooth, and the MCP server connections saved us days of configuration work",
-    name: "Dianne Russell",
-    company: "McDonald's",
+      "우리 스택에 통합하는 것이 매끄러웠고, MCP 서버 연결로 몇 날짜의 설정 작업을 절약했습니다.",
+    name: "다이앤 러셀",
+    company: "맥도날드",
     avatar: "/images/avatars/dianne-russell.png",
     type: "small-dark",
   },
   {
     quote:
-      "Pointer’s multi-agent coding feature has been a game changer. We’re fixing complex bugs in hours instead of spending entire sprints on them.",
-    name: "Cameron Williamson",
+      "다중 에이전트 코딩 기능이 게임 체인저였습니다. 전체 스프린트를 소비하는 대신 몇 시간 만에 복잡한 버그를 수정하고 있습니다.",
+    name: "캐머런 윌리엄슨",
     company: "IBM",
     avatar: "/images/avatars/cameron-williamson.png",
     type: "small-dark",
   },
   {
     quote:
-      "We no longer juggle multiple tools. Pointer brought all our integrations together in one place, which simplified our entire workflow.",
-    name: "Robert Fox",
-    company: "MasterCard",
+      "더 이상 여러 도구를 동시에 사용하지 않습니다. 모든 통합을 한 곳에 모아 전체 워크플로우를 단순화했습니다.",
+    name: "로버트 폭스",
+    company: "마스터카드",
     avatar: "/images/avatars/robert-fox.png",
     type: "small-dark",
   },
   {
     quote:
-      "We started with the free plan just to test it out, but within a week we upgraded to Pro. Now, we can’t imagine coding without it",
-    name: "Darlene Robertson",
-    company: "Ferrari",
+      "테스트를 위해 무료 플랜으로 시작했지만, 일주일 내에 프로 플랜으로 업그레이드했습니다. 이제는 이 없이 코딩할 수 없습니다.",
+    name: "달렌 로버트슨",
+    company: "페라리",
     avatar: "/images/avatars/darlene-robertson.png",
     type: "small-dark",
   },
   {
     quote:
-      "Collaborative coding feels effortless now. With Pointer’s real-time previews, pair programming has become faster and more productive.",
-    name: "Cody Fisher",
-    company: "Apple",
+      "이제 협업 코딩이 수월해졌습니다. 실시간 미리보기로 페어 프로그래밍이 더 빠르고 생산적이 되었습니다.",
+    name: "코디 피셔",
+    company: "애플",
     avatar: "/images/avatars/cody-fisher.png",
     type: "small-dark",
   },
   {
     quote:
-      "Deploying on Vercel with Pointer was not just simple, it felt seamless. We went from coding to seeing our changes live in minutes without worrying about build pipelines or configuration issues.",
-    name: "Albert Flores",
-    company: "Louis Vuitton",
+      "Vercel에 배포하는 것이 단순할 뿐만 아니라 완전히 매끄러웠습니다. 빌드 파이프라인이나 설정 문제를 걱정하지 않고 몇 분 만에 코딩에서 변경사항을 라이브로 볼 수 있었습니다.",
+    name: "알버트 플로레스",
+    company: "루이 비통",
     avatar: "/images/avatars/albert-flores.png",
     type: "large-light",
   },
@@ -133,11 +133,11 @@ export function TestimonialGridSection() {
       <div className="self-stretch py-6 md:py-8 lg:py-14 flex flex-col justify-center items-center gap-2">
         <div className="flex flex-col justify-start items-center gap-4">
           <h2 className="text-center text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight md:leading-tight lg:leading-[40px]">
-            Coding made effortless
+            코딩이 수월해졌습니다
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm md:text-sm lg:text-base font-medium leading-[18.20px] md:leading-relaxed lg:leading-relaxed">
-            {"Hear how developers ship products faster, collaborate seamlessly,"} <br />{" "}
-            {"and build with confidence using Pointer's powerful AI tools"}
+            {"개발자들이 제품을 더 빠르게 출시하고 원활하게 협업하며,"} <br />{" "}
+            {"강력한 AI 도구로 자신 있게 구축하는 방법을 확인하세요"}
           </p>
         </div>
       </div>

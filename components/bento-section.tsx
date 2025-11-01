@@ -36,33 +36,33 @@ const BentoCard = ({ title, description, Component }) => (
 export function BentoSection() {
   const cards = [
     {
-      title: "AI-powered code reviews.",
-      description: "Get real-time, smart suggestions for cleaner code.",
+      title: "AI 기반 코드 리뷰",
+      description: "실시간으로 더 깨끗한 코드를 위한 스마트한 제안을 받으세요.",
       Component: AiCodeReviews,
     },
     {
-      title: "Real-time coding previews",
-      description: "Chat, collaborate, and instantly preview changes together.",
+      title: "실시간 코딩 미리보기",
+      description: "채팅하고 협업하며 즉시 변경사항을 함께 미리볼 수 있습니다.",
       Component: RealtimeCodingPreviews,
     },
     {
-      title: "One-click integrations",
-      description: "Easily connect your workflow with popular dev tools.",
+      title: "원클릭 통합",
+      description: "인기 있는 개발 도구와 워크플로우를 쉽게 연결하세요.",
       Component: OneClickIntegrationsIllustration,
     },
     {
-      title: "Flexible MCP connectivity",
-      description: "Effortlessly manage and configure MCP server access.",
-      Component: MCPConnectivityIllustration, // Updated component
+      title: "유연한 MCP 연결",
+      description: "MCP 서버 접근을 쉽게 관리하고 구성할 수 있습니다.",
+      Component: MCPConnectivityIllustration,
     },
     {
-      title: "Launch parallel coding agents", // Swapped position
-      description: "Solve complex problems faster with multiple AI agents.",
-      Component: ParallelCodingAgents, // Updated component
+      title: "병렬 코딩 에이전트 실행",
+      description: "여러 AI 에이전트로 복잡한 문제를 더 빠르게 해결하세요.",
+      Component: ParallelCodingAgents,
     },
     {
-      title: "Deployment made easy", // Swapped position
-      description: "Go from code to live deployment on Vercel instantly.",
+      title: "쉬운 배포",
+      description: "코드에서 Vercel로 즉시 라이브 배포까지 진행하세요.",
       Component: EasyDeployment,
     },
   ]
@@ -74,11 +74,10 @@ export function BentoSection() {
         <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
           <div className="flex flex-col justify-start items-center gap-4">
             <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
-              Empower Your Workflow with AI
+              AI로 워크플로우를 강화하세요
             </h2>
             <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
+              AI 에이전트에게 실시간 협업, 원활한 통합, 실행 가능한 인사이트를 요청하여 운영을 간소화하세요.
             </p>
           </div>
         </div>

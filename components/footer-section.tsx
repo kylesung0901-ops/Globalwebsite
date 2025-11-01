@@ -8,9 +8,9 @@ export function FooterSection() {
       {/* Left Section: Logo, Description, Social Links */}
       <div className="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
         <div className="flex gap-3 items-stretch justify-center">
-          <div className="text-center text-foreground text-xl font-semibold leading-4">Pointer</div>
+          <div className="text-center text-foreground text-xl font-semibold leading-4">Global</div>
         </div>
-        <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left">Coding made effortless</p>
+        <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left">코딩이 수월해졌습니다</p>
         <div className="flex justify-start items-start gap-3">
           <a href="#" aria-label="Twitter" className="w-4 h-4 flex items-center justify-center">
             <Twitter className="w-full h-full text-muted-foreground" />
@@ -26,62 +26,62 @@ export function FooterSection() {
       {/* Right Section: Product, Company, Resources */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 p-4 md:p-8 w-full md:w-auto">
         <div className="flex flex-col justify-start items-start gap-3">
-          <h3 className="text-muted-foreground text-sm font-medium leading-5">Product</h3>
+          <h3 className="text-muted-foreground text-sm font-medium leading-5">제품</h3>
           <div className="flex flex-col justify-end items-start gap-2">
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Features
+              기능
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Pricing
+              가격
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Integrations
+              통합
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Real-time Previews
+              실시간 미리보기
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Multi-Agent Coding
-            </a>
-          </div>
-        </div>
-        <div className="flex flex-col justify-start items-start gap-3">
-          <h3 className="text-muted-foreground text-sm font-medium leading-5">Company</h3>
-          <div className="flex flex-col justify-center items-start gap-2">
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              About us
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Our team
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Careers
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Brand
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Contact
+              다중 에이전트 코딩
             </a>
           </div>
         </div>
         <div className="flex flex-col justify-start items-start gap-3">
-          <h3 className="text-muted-foreground text-sm font-medium leading-5">Resources</h3>
+          <h3 className="text-muted-foreground text-sm font-medium leading-5">회사</h3>
           <div className="flex flex-col justify-center items-start gap-2">
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Terms of use
+              회사 소개
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              API Reference
+              팀 소개
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Documentation
+              채용
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Community
+              브랜드
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Support
+              문의
+            </a>
+          </div>
+        </div>
+        <div className="flex flex-col justify-start items-start gap-3">
+          <h3 className="text-muted-foreground text-sm font-medium leading-5">리소스</h3>
+          <div className="flex flex-col justify-center items-start gap-2">
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              이용약관
+            </a>
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              API 참조
+            </a>
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              문서
+            </a>
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              커뮤니티
+            </a>
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              지원
             </a>
           </div>
         </div>
