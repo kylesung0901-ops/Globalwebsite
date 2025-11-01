@@ -31,21 +31,21 @@ export default function CTA() {
     }
 
     if (!db) {
-      setError('데이터베이스를 초기화할 수 없습니다.')
+      setError('데이터베이스를 초기화할 수 없습니다. Firebase 설정을 확인해주세요.')
       return
     }
 
     setIsLoading(true)
 
     try {
-      await addDoc(collection(db, 'contacts'), {
+      const docRef = await addDoc(collection(db, 'contacts'), {
         name,
         phone,
         email,
         projectDescription,
         createdAt: serverTimestamp(),
       })
-
+      console.log('연락처 정보 저장 성공 - 문서 ID:', docRef.id)
       setIsSubmitted(true)
       setName('')
       setPhone('')

@@ -67,14 +67,15 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     }
 
     if (!auth) {
-      setError('인증 서비스를 초기화할 수 없습니다.')
+      setError('인증 서비스를 초기화할 수 없습니다. Firebase 설정을 확인해주세요.')
       return
     }
 
     setIsLoading(true)
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      console.log('회원가입 성공:', userCredential.user.email)
       resetForm()
       onOpenChange(false)
     } catch (error: any) {
@@ -100,14 +101,15 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     }
 
     if (!auth) {
-      setError('인증 서비스를 초기화할 수 없습니다.')
+      setError('인증 서비스를 초기화할 수 없습니다. Firebase 설정을 확인해주세요.')
       return
     }
 
     setIsLoading(true)
 
     try {
-      await signInWithEmailAndPassword(auth, email, password)
+      const userCredential = await signInWithEmailAndPassword(auth, email, password)
+      console.log('로그인 성공:', userCredential.user.email)
       resetForm()
       onOpenChange(false)
     } catch (error: any) {
