@@ -2,14 +2,15 @@ import { initializeApp, getApps, FirebaseApp } from 'firebase/app'
 import { getAuth, Auth } from 'firebase/auth'
 import { getFirestore, Firestore } from 'firebase/firestore'
 
+// Firebase 설정 - 환경 변수가 없으면 직접 값을 사용
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyCe41QT5ZIfosTU2M0fz1TZN5H0Vorw94U",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "globalwebsite-36924.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "globalwebsite-36924",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "globalwebsite-36924.firebasestorage.app",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "979789711378",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:979789711378:web:a5bea52f620c4ab45970cb",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-YY67QQWNQR",
 }
 
 let app: FirebaseApp | undefined
@@ -64,26 +65,41 @@ const getFirebaseAuth = (): Auth | undefined => {
 
 const getFirebaseFirestore = (): Firestore | undefined => {
   if (typeof window === 'undefined') {
+    console.warn('Firestore can only be initialized on the client side')
     return undefined
   }
 
+  // 환경 변수 확인 (더 자세한 로깅)
   if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
-    console.warn('Firebase configuration is missing for Firestore. Please check your environment variables.')
+    console.error('Firebase configuration is missing for Firestore:', {
+      hasApiKey: !!firebaseConfig.apiKey,
+      hasProjectId: !!firebaseConfig.projectId,
+      config: firebaseConfig
+    })
     return undefined
   }
 
   if (!db) {
     const firebaseApp = getFirebaseApp()
-    if (firebaseApp) {
-      try {
-        db = getFirestore(firebaseApp)
-        console.log('Firestore initialized successfully')
-      } catch (error) {
-        console.error('Firebase Firestore initialization error:', error)
-        return undefined
-      }
-    } else {
+    if (!firebaseApp) {
       console.error('Firebase app is not initialized. Cannot initialize Firestore.')
+      console.error('Firebase app initialization failed. Check browser console for details.')
+      return undefined
+    }
+
+    try {
+      db = getFirestore(firebaseApp)
+      console.log('✅ Firestore initialized successfully', {
+        projectId: firebaseConfig.projectId,
+        apiKey: firebaseConfig.apiKey?.substring(0, 10) + '...'
+      })
+    } catch (error: any) {
+      console.error('❌ Firebase Firestore initialization error:', error)
+      console.error('Error details:', {
+        message: error.message,
+        code: error.code,
+        stack: error.stack
+      })
       return undefined
     }
   }

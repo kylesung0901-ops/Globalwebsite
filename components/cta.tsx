@@ -33,10 +33,18 @@ export default function CTA() {
     const db = getDb()
     
     if (!db) {
-      setError('데이터베이스를 초기화할 수 없습니다. Firebase 설정을 확인해주세요. 브라우저 콘솔을 확인하세요.')
-      console.error('Firestore 초기화 실패 - 환경 변수 확인 필요')
+      const errorMsg = '데이터베이스를 초기화할 수 없습니다. Firebase 설정을 확인해주세요. 브라우저 콘솔(F12)을 확인하세요.'
+      setError(errorMsg)
+      console.error('❌ Firestore 초기화 실패')
+      console.error('현재 Firebase 설정:', {
+        hasApiKey: !!process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'undefined',
+        isClient: typeof window !== 'undefined'
+      })
       return
     }
+    
+    console.log('✅ Firestore 연결 성공, 데이터 저장 준비 완료')
 
     setIsLoading(true)
 
