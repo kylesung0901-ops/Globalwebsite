@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { db } from '@/lib/firebase'
+import { getDb } from '@/lib/firebase'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -30,8 +30,11 @@ export default function CTA() {
       return
     }
 
+    const db = getDb()
+    
     if (!db) {
-      setError('데이터베이스를 초기화할 수 없습니다. Firebase 설정을 확인해주세요.')
+      setError('데이터베이스를 초기화할 수 없습니다. Firebase 설정을 확인해주세요. 브라우저 콘솔을 확인하세요.')
+      console.error('Firestore 초기화 실패 - 환경 변수 확인 필요')
       return
     }
 

@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 let app: FirebaseApp | undefined
 let auth: Auth | undefined
-let db: Firestore | undefined
+let db: Firestore | undefined = undefined
 
 const getFirebaseApp = (): FirebaseApp | undefined => {
   if (typeof window === 'undefined') {
@@ -67,25 +67,45 @@ const getFirebaseFirestore = (): Firestore | undefined => {
     return undefined
   }
 
+  if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+    console.warn('Firebase configuration is missing for Firestore. Please check your environment variables.')
+    return undefined
+  }
+
   if (!db) {
     const firebaseApp = getFirebaseApp()
     if (firebaseApp) {
       try {
         db = getFirestore(firebaseApp)
+        console.log('Firestore initialized successfully')
       } catch (error) {
         console.error('Firebase Firestore initialization error:', error)
         return undefined
       }
+    } else {
+      console.error('Firebase app is not initialized. Cannot initialize Firestore.')
+      return undefined
     }
   }
 
   return db
 }
 
-app = getFirebaseApp()
-auth = getFirebaseAuth()
-db = getFirebaseFirestore()
+// 클라이언트 사이드에서만 초기화
+if (typeof window !== 'undefined') {
+  app = getFirebaseApp()
+  auth = getFirebaseAuth()
+  // db는 사용 시점에 초기화 (lazy initialization)
+}
 
-export { auth, db }
+// db를 함수로 export하여 항상 최신 상태로 가져오도록 함
+// 이 함수는 컴포넌트에서 호출될 때마다 최신 상태의 db를 반환
+export const getDb = (): Firestore | undefined => {
+  return getFirebaseFirestore()
+}
+
+// 기존 호환성을 위해 db도 export (lazy initialization)
+// getDb() 함수 사용을 권장합니다
+export { db, auth }
 export default app
 
